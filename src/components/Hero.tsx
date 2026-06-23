@@ -96,17 +96,17 @@ export function Hero() {
       className="min-h-screen flex flex-col md:flex-row items-center px-6 md:px-20 gap-10 md:gap-15 relative overflow-hidden pt-20 md:pt-0 text-center md:text-left"
     >
       {/* Robot Spline — z-0, pointer-events aktif supaya cursor bisa interaksi */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" style={{ transform: 'scaleX(-1)' }}>
         <SplineScene scene={SPLINE_SCENE_URL} className="w-full h-full" />
 
-        {/* Penutup watermark */}
+        {/* Penutup watermark — counter-mirror karena parent di-flip */}
         <div
-          className="absolute bottom-0 right-0 w-72 h-20 pointer-events-none"
-          style={{ zIndex: 2, background: 'linear-gradient(to top left, #080b12 65%, transparent 100%)' }}
+          className="absolute bottom-0 left-0 w-72 h-20 pointer-events-none"
+          style={{ zIndex: 2, background: 'linear-gradient(to top right, #080b12 65%, transparent 100%)', transform: 'scaleX(-1)' }}
         />
         <div
-          className="absolute bottom-0 right-0 w-56 h-12 pointer-events-none rounded-tl-2xl"
-          style={{ zIndex: 3, background: '#080b12' }}
+          className="absolute bottom-0 left-0 w-56 h-12 pointer-events-none rounded-tr-2xl"
+          style={{ zIndex: 3, background: '#080b12', transform: 'scaleX(-1)' }}
         />
       </div>
 
